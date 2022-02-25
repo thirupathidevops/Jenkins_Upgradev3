@@ -3,13 +3,8 @@ pipeline {
     stages {
         stage('Build Application') {
             steps {
-                 withMaven(
-        // Maven installation declared in the Jenkins "Global Tool Configuration"
-        maven: 'maven2'
-        
-                 ){
-                     sh 'mvn -f java-tomcat-sample/pom.xml clean package'}
-            }
+                 
+                     sh 'mvn -f java-tomcat-sample/pom.xml clean package
             post {
                 success {
                     echo "Now Archiving the Artifacts...."
